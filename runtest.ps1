@@ -1,6 +1,7 @@
 # Download a specific version of Node/NPM and install it in the path.
 
-$nodeUrl = "https://nodejs.org/dist/v18.16.0/node-v18.16.1-win-x64.zip"
+$nodeUrl = "https://nodejs.org/dist/v18.16.0/node-v18.16.0-win-x64.zip"
+           #"https://nodejs.org/dist/v18.16.0/node-v18.16.1-win-x64.zip"
 $nodefolder = $PSScriptRoot + "\.bin"
 
 if(!(Test-Path $nodefolder)) {
@@ -22,7 +23,7 @@ if($null -eq $nodexepath) {
 
 $env:PATH = $nodexepath.Directory.FullName + ";" + $env:PATH
 
-echo $nodexepath.Directory.FullName
+Write-Output $nodexepath.Directory.FullName
 node --version
 
 

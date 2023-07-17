@@ -1,7 +1,7 @@
 
 name: download-node-and-run-code
 
-on: push, workflow_dispatch
+on: [push, workflow_dispatch]
 
 jobs:
   build:

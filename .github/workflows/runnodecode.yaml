@@ -1,0 +1,16 @@
+
+name: download-node-and-run-code
+
+on: push
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Script
+        run: ./runtest.ps1
+        shell: pwsh
+
+  

@@ -18,6 +18,6 @@ jobs:
         shell: pwsh
       - run: echo "${{github.workspace}}\.bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 
       - run: node -v
-      - run: "${{github.workspace}}\\.bin\\node -v"
+      - run: echo $env:GITHUB_PATH
 
   

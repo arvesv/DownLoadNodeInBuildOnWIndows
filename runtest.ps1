@@ -26,6 +26,7 @@ if($null -eq $nodexepath) {
 $env:PATH = $nodexepath.Directory.FullName + ";" + $env:PATH
 
 node --version
+npm install
 npm test
 
 

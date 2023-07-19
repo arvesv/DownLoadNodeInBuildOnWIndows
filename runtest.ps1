@@ -1,7 +1,9 @@
-# Download a specific version of Node/NPM and install it in the path.
+# Download a specific version of Node/NPM and install it in the path (for this script only)
 
+# The node version we have chosen
 $nodeUrl = "https://nodejs.org/dist/v18.16.0/node-v18.16.0-win-x64.zip"
            
+# The folder where we will download and extract the node.exe (added to .gitignore)
 $nodefolder = $PSScriptRoot + "\.bin"
 
 if(!(Test-Path $nodefolder)) {
@@ -23,9 +25,8 @@ if($null -eq $nodexepath) {
 
 $env:PATH = $nodexepath.Directory.FullName + ";" + $env:PATH
 
-Write-Output $nodexepath.Directory.FullName
 node --version
-
+npm test
 
 
 

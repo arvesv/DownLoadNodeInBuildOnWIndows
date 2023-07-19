@@ -1,16 +1,23 @@
 
 name: download-node-and-run-code
 
-on: push
+on: [push, workflow_dispatch]
 
 jobs:
   build:
     runs-on: windows-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3   
+      - run: node -v
       - name: Script
         run: ./runtest.ps1
         shell: pwsh
+      - name: Add to path
+        run: echo "${{github.workspace}}"
+        shell: pwsh
+      - run: echo "${{github.workspace}}\.bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 
+      - run: node -v
+      - run: echo $env:GITHUB_PATH
 
   
